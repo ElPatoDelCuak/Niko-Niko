@@ -1,0 +1,16 @@
+/* Footer */
+footer {
+    max-width: 1200px;
+    margin: 4rem auto 2rem;
+    padding: 2rem 2rem;
+    background: linear-gradient(135deg, #312f2f, #3d3a3a);
+    border-radius: 16px 16px 0 0;
+    color: #e2e2e2;
+    text-align: center;
+    font-size: 0.95rem;
+    box-shadow: 0 -4px 20px rgba(49, 47, 47, 0.15);
+}
+
+footer p {
+    margin: 0;
+}
