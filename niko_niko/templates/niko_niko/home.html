@@ -7,14 +7,14 @@ Niko-Niko!
 {% endblock  %}
 
 {% block link_css %}
-    <link rel="stylesheet" href="{% static 'niko_niko/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
-
+    {% include "niko_niko/header.html" %}
     <div class="container">
         <h1>Benvingut a Niko-Niko!</h1>
         <p>Aquesta és la pàgina d'inici de l'aplicació Niko-Niko.</p>
     </div>
-
+    {% include "niko_niko/footer.html" %}
 {% endblock %}
