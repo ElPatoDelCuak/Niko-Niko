@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -5,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- nom que ens farà referència quan fem la crida -->
     <title>{% block title %}{% endblock  %}</title>
-    {% block link_css %}
-    
-    {% endblock %}    
+    {% block link_css %}{% endblock %}
+    <link rel="icon" type="image/png" href="{% static 'img/LOGO.png' %}">    
 </head>
 <body>
 
