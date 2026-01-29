@@ -11,42 +11,208 @@ Niko-Niko!
 {% endblock %}
 
 {% block content %}
-    {% include "niko_niko/header.html" %}
+    {% include "header.html" %}
     <main>
-        <section class="welcome-section">
-            <h2>Benvinguts a Niko-Niko!</h2>
-            <p>Descobreix les millors receptes de cuina japonesa i molt més.</p>
-            <a href="{% url 'niko_niko:recipe' %}" class="btn">Explora Receptes</a>
+        <section class="hero">
+        <div class="hero__bg">
+            <img src="{% static 'img/hero-cooking.jpg' %}" alt="Japanese cooking ingredients on a warm kitchen counter">
+            <div class="hero__overlay"></div>
+        </div>
+        
+        <div class="hero__content">
+            <p class="hero__eyebrow">Descubra la alegría de cocinar</p>
+            <h1 class="hero__title text-balance">
+            Recetas sencillas,<br>
+            <span>sabores sinceros</span>
+            </h1>
+            <p class="hero__description">
+            Bienvenido a Niko-Niko, donde la cocina de inspiración japonesa y asiática se fusiona con la calidez de la cocina casera. Explora, cocina y comparte con nuestra amigable comunidad.
+            </p>
+            <div class="hero__buttons">
+            <a href="#recipes" class="btn btn-primary btn-lg">
+                Explorar recetas
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <use href="#icon-arrow-right"></use>
+                </svg>
+            </a>
+            <a href="#about" class="btn btn-outline btn-lg">Descubre más</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-indicator__pill">
+            <div class="scroll-indicator__dot"></div>
+            </div>
+        </div>
         </section>
-        <section class="features-section">
-            <div class="feature">
-                <h3>Receptes Autèntiques</h3>
-                <p>Gaudeix de receptes tradicionals japoneses preparades amb ingredients frescos.</p>
+        <section id="recipes" class="section">
+        <div class="container">
+            <div class="recipes__header">
+            <div>
+                <p class="section__eyebrow">Recetas destacadas</p>
+                <h2 class="section__title text-balance">
+                Comienza tu culinaria<br>
+                viaje aqui
+                </h2>
             </div>
-            <div class="feature">
-                <h3>Fàcil de Seguir</h3>
-                <p>Instruccions pas a pas per a cuiners de tots els nivells.</p>
+            <a href="#" class="btn btn-outline">
+                Mira Nuetras Recetas
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <use href="#icon-arrow-right"></use>
+                </svg>
+            </a>
             </div>
-            <div class="feature">
-                <h3>Comunitat Niko-Niko</h3>
-                <p>Uneix-te a la nostra comunitat i comparteix les teves creacions culinàries.</p>
+            
+            <div class="recipes__grid">
+            {% for recipe in recipes %}
+            <article class="recipe-card">
+                <div class="recipe-card__image-wrapper">
+                <img src="{% static recipe.image %}" alt="{{ recipe.title }}" class="recipe-card__image">
+                <div class="recipe-card__gradient"></div>
+                <span class="recipe-card__badge">{{ recipe.category }}</span>
+                <div class="recipe-card__content">
+                    <h3 class="recipe-card__title">{{ recipe.title }}</h3>
+                    <p class="recipe-card__description">{{ recipe.description }}</p>
+                    <div class="recipe-card__meta">
+                    <div class="recipe-card__meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <use href="#icon-clock"></use>
+                        </svg>
+                        <span>{{ recipe.time }}</span>
+                    </div>
+                    <div class="recipe-card__meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24"  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <use href="#icon-users"></use>
+                        </svg>
+                        <span>{{ recipe.servings }}</span>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </article>
+            {% endfor %}
             </div>
+        </div>
         </section>
-        <section class="faqs-section">
-            <h2>Preguntes Freqüents</h2>
-            <div class="faq">
-                <h4>Com puc trobar receptes específiques?</h4>
-                <p>Utilitza la barra de cerca a la pàgina de receptes per trobar plats específics.</p>
+        <section id="about" class="section section--alt">
+        <div class="container">
+            <div class="about__grid">
+            <div class="about__text">
+                <p class="section__eyebrow">Sobre Niko-Niko</p>
+                <h2 class="section__title text-balance">
+                Llevando alegría a<br>
+                cada cocina
+                </h2>
+                <p>
+                Niko-Niko significa "sonriente" en japonés, y eso es precisamente lo que queremos aportar a tu experiencia culinaria. Nuestra plataforma celebra el arte de la cocina de inspiración japonesa y asiática, haciéndola accesible y disfrutable para todos.
+                </p>
+                <p>
+                Ya sea que estés dominando tu primer plato de ramen o perfeccionando la receta de dumplings de tu abuela, estamos aquí para guiarte en cada paso del camino con instrucciones claras, consejos útiles y una comunidad de apoyo.
+                </p>
             </div>
-            <div class="faq">
-                <h4>Ofereu receptes per a dietes especials?</h4>
-                <p>Sí, tenim una varietat de receptes per a dietes vegetarianes, veganes i sense gluten.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                <div class="value-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-heart"></use>
+                    </svg>
+                </div>
+                <h3 class="value-card__title">Made with Love</h3>
+                <p class="value-card__description">Every recipe is crafted with care, tested in our kitchens, and shared with heart.</p>
+                </div>
+                
+                <div class="value-card">
+                <div class="value-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-users"></use>
+                    </svg>
+                </div>
+                <h3 class="value-card__title">Community First</h3>
+                <p class="value-card__description">Join thousands of home cooks sharing tips, stories, and their own creations.</p>
+                </div>
+                
+                <div class="value-card">
+                <div class="value-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-leaf"></use>
+                    </svg>
+                </div>
+                <h3 class="value-card__title">Fresh & Simple</h3>
+                <p class="value-card__description">We believe in using quality ingredients and keeping things beautifully simple.</p>
+                </div>
+                
+                <div class="value-card">
+                <div class="value-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-book"></use>
+                    </svg>
+                </div>
+                <h3 class="value-card__title">Learn & Grow</h3>
+                <p class="value-card__description">From beginners to experts, everyone can find something new to discover.</p>
+                </div>
             </div>
-            <div class="faq">
-                <h4>Puc compartir les meves pròpies receptes?</h4>
-                <p>Actualment estem treballant en aquesta funcionalitat. Mantingueu-vos atents!</p>
             </div>
+        </div>
+        </section>
+        <section id="community" class="section">
+        <div class="container">
+            <div class="community__header">
+            <p class="section__eyebrow">Nuestra comunidad</p>
+            <h2 class="section__title text-balance">
+                Únete a miles de<br>
+                cocineros caseros felices
+            </h2>
+            <p class="section__description">
+                Vea lo que dicen los miembros de nuestra comunidad sobre su experiencia culinaria con Niko-Niko.
+            </p>
+            </div>
+            
+            
+            <div class="testimonials-grid">
+                {% for valoration in valorations %}
+                <div class="testimonial-card">
+                    {% include "partials/star-rating.html" with count=valoration.stars %}
+                    <blockquote class="testimonial-card__quote">{{ valoration.text }}</blockquote>
+                    <p class="testimonial-card__author">{{ valoration.author }}</p>
+                    <p class="testimonial-card__role">{{ valoration.occupation }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="community__cta">
+            <a href="#" class="btn btn-primary btn-lg">
+                Únase a nuestra comunidad
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <use href="#icon-arrow-right"></use>
+                </svg>
+            </a>
+            </div>
+        </div>
+        </section>
+        <section id="faq" class="section section--alt">
+        <div class="container">
+            <div class="faq__header">
+            <p class="section__eyebrow">FAQ</p>
+            <h2 class="section__title text-balance">Preguntas comunes</h2>
+            </div>
+            
+            <div class="faq__list">
+            {% for faq in faqs %}
+                <div class="faq-item">
+                    <button class="faq-item__question" onclick="toggleFaq(this)">
+                    {{ faq.question }}
+                    <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <use href="#icon-chevron-down"></use>
+                    </svg>
+                    </button>
+                    <div class="faq-item__answer">
+                    {{ faq.answer }}
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
         </section>
     </main>
-    {% include "niko_niko/footer.html" %}
+    {% include "footer.html" %}
 {% endblock %}

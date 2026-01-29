@@ -1,0 +1,9 @@
+<div class="testimonial-card__stars">
+  {% with ""|ljust:count as stars %}
+    {% for _ in stars|make_list %}
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <use href="#icon-star"></use>
+      </svg>
+    {% endfor %}
+  {% endwith %}
+</div>

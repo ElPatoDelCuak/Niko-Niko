@@ -7,17 +7,17 @@
     <!-- nom que ens farà referència quan fem la crida -->
     <title>{% block title %}{% endblock  %}</title>
     {% block link_css %}{% endblock %}
-    <link rel="icon" type="image/png" href="{% static 'img/LOGO.png' %}">    
+    <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">    
 </head>
 <body>
+    {% include "partials/icons.html" %}
 
-    
     {% block content %}
-    
 
-    
+
+
     {% endblock %}
 
-    
+
 </body>
 </html>

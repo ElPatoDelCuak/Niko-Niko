@@ -1,8 +1,31 @@
 :root {
-    --primary-color: #F56B3E;
-    --secondary-color: #E2E2E2;
-    --dark-color: #312F2F;
-    --light-color: #F5F5F5;
-    --complementary-color: #508AA8;
-    --complementary-dark: #7180B9;
+    /* Base colors */
+    --background: #f5f2ed;
+    --foreground: #3d3730;
+    --card: #faf9f7;
+    --card-foreground: #3d3730;
+    --muted: #e8e4dd;
+    --muted-foreground: #7a746b;
+    --accent: #6b8f71;
+    --accent-foreground: #faf9f7;
+    --border: #e0dbd3;
+    --secondary: #ece8e1;
+    --accent-hover: #5a7a5f;
+    --background-80: rgba(245, 242, 237, 0.8);
+    --background-70: rgba(245, 242, 237, 0.7);
+    --background-50: rgba(245, 242, 237, 0.5);
+    --background-20: rgba(245, 242, 237, 0.2);
+    --background-10: rgba(245, 242, 237, 0.1);
+    --border-50: rgba(224, 219, 211, 0.5);
+    --foreground-60: rgba(61, 55, 48, 0.6);
+    --foreground-40: rgba(61, 55, 48, 0.4);
+    --foreground-20: rgba(61, 55, 48, 0.2);
+    --foreground-05: rgba(61, 55, 48, 0.05);
+    --secondary-50: rgba(236, 232, 225, 0.5);
+    --accent-30: rgba(107, 143, 113, 0.3);
+    --accent-10: rgba(107, 143, 113, 0.1);
+    --card-90: rgba(250, 249, 247, 0.9);
+    --white: #ffffff;
+    --white-80: rgba(255, 255, 255, 0.8);
+    --white-70: rgba(255, 255, 255, 0.7);
 }

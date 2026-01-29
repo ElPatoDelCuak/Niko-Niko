@@ -1,3 +1,9 @@
+/* ===========================================
+   NIKO-NIKO - Native CSS
+   Japanese-Inspired Recipe Website
+   =========================================== */
+
+/* ============ CSS RESET & BASE ============ */
 *,
 *::before,
 *::after {
@@ -8,6 +14,22 @@
 
 /* ============ CSS VARIABLES ============ */
 :root {
+  /* Colors - Warm Japanese-inspired palette */
+  --background: #f5f2ed;
+  --foreground: #3d3730;
+  --card: #faf9f7;
+  --card-foreground: #3d3730;
+  --muted: #e8e4dd;
+  --muted-foreground: #7a746b;
+  --accent: #6b8f71;
+  --accent-foreground: #faf9f7;
+  --border: #e0dbd3;
+  --secondary: #ece8e1;
+  
+  /* Typography */
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  
   /* Spacing */
   --radius: 0.75rem;
   --radius-lg: 1rem;
@@ -100,17 +122,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-hover);
+  background-color: #5a7a5f;
 }
 
 .btn-outline {
   background-color: transparent;
-  border: 1px solid var(--foreground-20);
+  border: 1px solid rgba(61, 55, 48, 0.2);
   color: var(--foreground);
 }
 
 .btn-outline:hover {
-  background-color: var(--foreground-05);
+  background-color: rgba(61, 55, 48, 0.05);
 }
 
 .btn-lg {
@@ -135,10 +157,10 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: var(--background-80);
+  background-color: rgba(245, 242, 237, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-50);
+  border-bottom: 1px solid rgba(224, 219, 211, 0.5);
 }
 
 .header__inner {
@@ -156,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header__nav {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 2rem;
 }
@@ -173,7 +195,60 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header__cta {
+  display: none;
+}
+
+.header__menu-btn {
+  padding: 0.5rem;
+  color: var(--foreground);
+}
+
+.header__menu-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  border-top: 1px solid var(--border);
+  background-color: var(--background);
+  padding: 1rem 1.5rem;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-menu__nav {
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-menu__link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  padding: 0.5rem 0;
+}
+
+.mobile-menu__link:hover {
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .header__nav {
+    display: flex;
+  }
+  
+  .header__cta {
+    display: flex;
+  }
+  
+  .header__menu-btn {
+    display: none;
+  }
 }
 
 /* ============ HERO SECTION ============ */
@@ -204,9 +279,9 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    var(--background-70) 0%,
-    var(--background-50) 50%,
-    var(--background) 100%
+    rgba(245, 242, 237, 0.7) 0%,
+    rgba(245, 242, 237, 0.5) 50%,
+    rgba(245, 242, 237, 1) 100%
   );
 }
 
@@ -247,13 +322,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero__buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
 }
 
-/* SCROLL INDICATOR */
+@media (min-width: 640px) {
+  .hero__buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
   bottom: 2rem;
@@ -265,7 +346,7 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-indicator__pill {
   width: 1.5rem;
   height: 2.5rem;
-  border: 2px solid var(--foreground-20);
+  border: 2px solid rgba(61, 55, 48, 0.2);
   border-radius: var(--radius-full);
   display: flex;
   justify-content: center;
@@ -274,7 +355,7 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-indicator__dot {
   width: 0.375rem;
   height: 0.75rem;
-  background-color: var(--foreground-40);
+  background-color: rgba(61, 55, 48, 0.4);
   border-radius: var(--radius-full);
   margin-top: 0.5rem;
   animation: bounce 2s infinite;
@@ -294,11 +375,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ============ SECTION STYLES ============ */
 .section {
-  padding: 8rem 0;
+  padding: 6rem 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 8rem 0;
+  }
 }
 
 .section--alt {
-  background-color: var(--secondary-50);
+  background-color: rgba(236, 232, 225, 0.5);
 }
 
 .section__eyebrow {
@@ -324,17 +411,35 @@ h1, h2, h3, h4, h5, h6 {
 /* ============ FEATURED RECIPES ============ */
 .recipes__header {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 4rem;
 }
 
+@media (min-width: 768px) {
+  .recipes__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
 .recipes__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .recipes__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .recipes__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Recipe Card */
@@ -366,7 +471,7 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   background: linear-gradient(
     to top,
-    var(--foreground-60) 0%,
+    rgba(61, 55, 48, 0.6) 0%,
     transparent 50%,
     transparent 100%
   );
@@ -379,7 +484,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.375rem 0.75rem;
   font-size: 0.75rem;
   font-weight: 500;
-  background-color: var(--card-90);
+  background-color: rgba(250, 249, 247, 0.9);
   backdrop-filter: blur(4px);
   border-radius: var(--radius-full);
 }
@@ -390,7 +495,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   padding: 1.5rem;
-  color: var(--white);
+  color: white;
 }
 
 .recipe-card__title {
@@ -407,7 +512,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .recipe-card__description {
   font-size: 0.875rem;
-  color: var(--white-80);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -420,7 +525,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 1rem;
   font-size: 0.875rem;
-  color: var(--white-70);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .recipe-card__meta-item {
@@ -437,9 +542,14 @@ h1, h2, h3, h4, h5, h6 {
 /* ============ ABOUT SECTION ============ */
 .about__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .about__text p {
@@ -455,27 +565,32 @@ h1, h2, h3, h4, h5, h6 {
 /* Values Grid */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .value-card {
   background-color: var(--card);
-  border: 1px solid var(--border-50);
+  border: 1px solid rgba(224, 219, 211, 0.5);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: border-color 0.2s ease;
 }
 
 .value-card:hover {
-  border-color: var(--accent-30);
+  border-color: rgba(107, 143, 113, 0.3);
 }
 
 .value-card__icon {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: var(--radius-full);
-  background-color: var(--accent-10);
+  background-color: rgba(107, 143, 113, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -513,14 +628,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 4rem;
 }
 
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .testimonial-card {
   background-color: var(--card);
-  border: 1px solid var(--border-50);
+  border: 1px solid rgba(224, 219, 211, 0.5);
   border-radius: var(--radius-lg);
   padding: 2rem;
 }
@@ -568,7 +688,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-item {
-  border-bottom: 1px solid var(--border-50);
+  border-bottom: 1px solid rgba(224, 219, 211, 0.5);
 }
 
 .faq-item__question {
@@ -616,18 +736,36 @@ h1, h2, h3, h4, h5, h6 {
 .footer {
   background-color: var(--foreground);
   color: var(--background);
-  padding: 5rem 0 2rem;
+  padding: 4rem 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 5rem 0 2rem;
+  }
 }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-bottom: 3rem;
 }
 
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 2fr repeat(4, 1fr);
+  }
+}
+
 .footer__brand {
-  grid-column: span 1;
+  grid-column: span 2;
+}
+
+@media (min-width: 768px) {
+  .footer__brand {
+    grid-column: span 1;
+  }
 }
 
 .footer__logo {
@@ -641,7 +779,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer__description {
   font-size: 0.875rem;
-  color: var(--background-70);
+  color: rgba(245, 242, 237, 0.7);
   line-height: 1.6;
   max-width: 20rem;
   margin-bottom: 1.5rem;
@@ -656,7 +794,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: var(--radius-full);
-  background-color: var(--background-10);
+  background-color: rgba(245, 242, 237, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -664,7 +802,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer__social-link:hover {
-  background-color: var(--background-20);
+  background-color: rgba(245, 242, 237, 0.2);
 }
 
 .footer__social-link svg {
@@ -685,7 +823,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer__links a {
   font-size: 0.875rem;
-  color: var(--background-70);
+  color: rgba(245, 242, 237, 0.7);
   transition: color 0.2s ease;
 }
 
@@ -695,11 +833,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer__bottom {
   padding-top: 2rem;
-  border-top: 1px solid var(--background-10);
+  border-top: 1px solid rgba(245, 242, 237, 0.1);
   text-align: center;
 }
 
 .footer__copyright {
   font-size: 0.875rem;
-  color: var(--background-50);
+  color: rgba(245, 242, 237, 0.5);
 }

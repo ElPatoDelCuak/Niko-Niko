@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the joy of cooking with Niko-Niko. Explore authentic Japanese and Asian-inspired recipes in a warm, welcoming community.">
+  <meta name="keywords" content="recipes, Japanese food, Asian cuisine, cooking, ramen, sushi, home cooking">
+  <meta name="theme-color" content="#f5f2ed">
+  <title>Niko-Niko | Japanese & Asian-Inspired Recipes</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">Niko-Niko</a>
+      
+      <nav class="header__nav">
+        <a href="#recipes" class="header__nav-link">Recipes</a>
+        <a href="#about" class="header__nav-link">About</a>
+        <a href="#community" class="header__nav-link">Community</a>
+        <a href="#faq" class="header__nav-link">FAQ</a>
+      </nav>
+      
+      <div class="header__cta">
+        <a href="#" class="btn btn-primary">Get Started</a>
+      </div>
+          
+      <!-- Mobile Menu
+      <button class="header__menu-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+        <svg id="close-icon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-menu__nav">
+        <a href="#recipes" class="mobile-menu__link" onclick="closeMobileMenu()">Recipes</a>
+        <a href="#about" class="mobile-menu__link" onclick="closeMobileMenu()">About</a>
+        <a href="#community" class="mobile-menu__link" onclick="closeMobileMenu()">Community</a>
+        <a href="#faq" class="mobile-menu__link" onclick="closeMobileMenu()">FAQ</a>
+        <a href="#" class="btn btn-primary" style="margin-top: 0.5rem;">Get Started</a>
+      </nav>
+    </div>-->
+  </header> 
+
+  <main>
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero">
+      <div class="hero__bg">
+        <img src="../images/hero-cooking.jpg" alt="Japanese cooking ingredients on a warm kitchen counter">
+        <div class="hero__overlay"></div>
+      </div>
+      
+      <div class="hero__content">
+        <p class="hero__eyebrow">Discover the Joy of Cooking</p>
+        <h1 class="hero__title text-balance">
+          Simple recipes,<br>
+          <span>heartfelt flavors</span>
+        </h1>
+        <p class="hero__description">
+          Welcome to Niko-Niko, where Japanese and Asian-inspired cuisine meets the warmth of home cooking. 
+          Explore, cook, and share with our friendly community.
+        </p>
+        <div class="hero__buttons">
+          <a href="#recipes" class="btn btn-primary btn-lg">
+            Browse Recipes
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+          <a href="#about" class="btn btn-outline btn-lg">Learn More</a>
+        </div>
+      </div>
+      
+      <div class="scroll-indicator">
+        <div class="scroll-indicator__pill">
+          <div class="scroll-indicator__dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED RECIPES ============ -->
+    <section id="recipes" class="section">
+      <div class="container">
+        <div class="recipes__header">
+          <div>
+            <p class="section__eyebrow">Featured Recipes</p>
+            <h2 class="section__title text-balance">
+              Start your culinary<br>
+              journey here
+            </h2>
+          </div>
+          <a href="#" class="btn btn-outline">
+            View All Recipes
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="recipes__grid">
+          <!-- Recipe Card 1 -->
+          <article class="recipe-card">
+            <div class="recipe-card__image-wrapper">
+              <img src="../images/recipe-ramen.jpg" alt="Classic Tonkotsu Ramen" class="recipe-card__image">
+              <div class="recipe-card__gradient"></div>
+              <span class="recipe-card__badge">Noodles</span>
+              <div class="recipe-card__content">
+                <h3 class="recipe-card__title">Classic Tonkotsu Ramen</h3>
+                <p class="recipe-card__description">Rich, creamy pork bone broth with tender chashu, soft-boiled egg, and fresh noodles.</p>
+                <div class="recipe-card__meta">
+                  <div class="recipe-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>4 hours</span>
+                  </div>
+                  <div class="recipe-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>4 servings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Recipe Card 2 -->
+          <article class="recipe-card">
+            <div class="recipe-card__image-wrapper">
+              <img src="../images/recipe-gyoza.jpg" alt="Crispy Gyoza" class="recipe-card__image">
+              <div class="recipe-card__gradient"></div>
+              <span class="recipe-card__badge">Appetizers</span>
+              <div class="recipe-card__content">
+                <h3 class="recipe-card__title">Crispy Gyoza</h3>
+                <p class="recipe-card__description">Pan-fried dumplings with juicy pork filling and perfectly crispy bottoms.</p>
+                <div class="recipe-card__meta">
+                  <div class="recipe-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>45 mins</span>
+                  </div>
+                  <div class="recipe-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>6 servings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Recipe Card 3 -->
+          <article class="recipe-card">
+            <div class="recipe-card__image-wrapper">
+              <img src="../images/recipe-matcha.jpg" alt="Matcha Swiss Roll" class="recipe-card__image">
+              <div class="recipe-card__gradient"></div>
+              <span class="recipe-card__badge">Desserts</span>
+              <div class="recipe-card__content">
+                <h3 class="recipe-card__title">Matcha Swiss Roll</h3>
+                <p class="recipe-card__description">Light and fluffy green tea sponge cake filled with delicate whipped cream.</p>
+                <div class="recipe-card__meta">
+                  <div class="recipe-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>1 hour</span>
+                  </div>
+                  <div class="recipe-card__meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>8 servings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section id="about" class="section section--alt">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__text">
+            <p class="section__eyebrow">About Niko-Niko</p>
+            <h2 class="section__title text-balance">
+              Bringing joy to<br>
+              every kitchen
+            </h2>
+            <p>
+              Niko-Niko means "smiling" in Japanese, and that's exactly what we want to bring to your cooking 
+              experience. Our platform celebrates the art of Japanese and Asian-inspired cuisine, 
+              making it accessible and enjoyable for everyone.
+            </p>
+            <p>
+              Whether you're mastering your first bowl of ramen or perfecting your grandmother's 
+              dumpling recipe, we're here to guide you every step of the way with clear 
+              instructions, helpful tips, and a supportive community.
+            </p>
+          </div>
+          
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                </svg>
+              </div>
+              <h3 class="value-card__title">Made with Love</h3>
+              <p class="value-card__description">Every recipe is crafted with care, tested in our kitchens, and shared with heart.</p>
+            </div>
+            
+            <div class="value-card">
+              <div class="value-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3 class="value-card__title">Community First</h3>
+              <p class="value-card__description">Join thousands of home cooks sharing tips, stories, and their own creations.</p>
+            </div>
+            
+            <div class="value-card">
+              <div class="value-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                </svg>
+              </div>
+              <h3 class="value-card__title">Fresh & Simple</h3>
+              <p class="value-card__description">We believe in using quality ingredients and keeping things beautifully simple.</p>
+            </div>
+            
+            <div class="value-card">
+              <div class="value-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                </svg>
+              </div>
+              <h3 class="value-card__title">Learn & Grow</h3>
+              <p class="value-card__description">From beginners to experts, everyone can find something new to discover.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMMUNITY SECTION ============ -->
+    <section id="community" class="section">
+      <div class="container">
+        <div class="community__header">
+          <p class="section__eyebrow">Our Community</p>
+          <h2 class="section__title text-balance">
+            Join thousands of<br>
+            happy home cooks
+          </h2>
+          <p class="section__description">
+            See what our community members are saying about their cooking journey with Niko-Niko.
+          </p>
+        </div>
+        
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "Niko-Niko transformed how I cook. The recipes are so clear and the results are always delicious!"
+            </blockquote>
+            <p class="testimonial-card__author">Sarah M.</p>
+            <p class="testimonial-card__role">Home Cook</p>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "Finally, authentic Japanese recipes that actually work in my home kitchen. Love this community!"
+            </blockquote>
+            <p class="testimonial-card__author">David L.</p>
+            <p class="testimonial-card__role">Food Enthusiast</p>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "The step-by-step guides make even complex dishes feel approachable. Highly recommend!"
+            </blockquote>
+            <p class="testimonial-card__author">Emily K.</p>
+            <p class="testimonial-card__role">Beginner Chef</p>
+          </div>
+        </div>
+        
+        <div class="community__cta">
+          <a href="#" class="btn btn-primary btn-lg">
+            Join Our Community
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ SECTION ============ -->
+    <section id="faq" class="section section--alt">
+      <div class="container">
+        <div class="faq__header">
+          <p class="section__eyebrow">FAQ</p>
+          <h2 class="section__title text-balance">Common questions</h2>
+        </div>
+        
+        <div class="faq__list">
+          <div class="faq-item">
+            <button class="faq-item__question" onclick="toggleFaq(this)">
+              Is Niko-Niko free to use?
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="faq-item__answer">
+              Yes! Niko-Niko is completely free to browse and use. We believe great recipes should be accessible to everyone. Premium features like meal planning and shopping lists are available with our optional subscription.
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-item__question" onclick="toggleFaq(this)">
+              Do I need special ingredients for the recipes?
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="faq-item__answer">
+              Most of our recipes use ingredients that can be found in regular grocery stores. For more specialized items, we provide helpful substitution tips and recommendations for where to find them locally or online.
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-item__question" onclick="toggleFaq(this)">
+              Are the recipes suitable for beginners?
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="faq-item__answer">
+              Absolutely! Every recipe includes detailed step-by-step instructions, helpful tips, and video guides. We also tag recipes by difficulty level so you can start with easier dishes and work your way up.
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-item__question" onclick="toggleFaq(this)">
+              Can I submit my own recipes?
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="faq-item__answer">
+              We love community contributions! Once you create an account, you can submit your own recipes for review. Approved recipes are featured in our community section and credited to you.
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-item__question" onclick="toggleFaq(this)">
+              How do I save recipes to make later?
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="faq-item__answer">
+              Simply create a free account and click the bookmark icon on any recipe to save it to your personal collection. You can organize saved recipes into custom folders and access them anytime.
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-item__question" onclick="toggleFaq(this)">
+              Do you offer dietary-specific recipes?
+              <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="faq-item__answer">
+              Yes! We have extensive collections of vegetarian, vegan, gluten-free, and allergy-friendly recipes. Use our filters to easily find recipes that match your dietary preferences.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo">Niko-Niko</a>
+          <p class="footer__description">
+            Bringing the joy of Japanese and Asian-inspired cooking to kitchens everywhere.
+          </p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+                <path d="m10 15 5-3-5-3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="footer__links-title">Recipes</h4>
+          <ul class="footer__links">
+            <li><a href="#">All Recipes</a></li>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Quick & Easy</a></li>
+            <li><a href="#">Seasonal</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer__links-title">Learn</h4>
+          <ul class="footer__links">
+            <li><a href="#">Cooking Tips</a></li>
+            <li><a href="#">Techniques</a></li>
+            <li><a href="#">Ingredients Guide</a></li>
+            <li><a href="#">Video Tutorials</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer__links-title">Community</h4>
+          <ul class="footer__links">
+            <li><a href="#">Join Us</a></li>
+            <li><a href="#">Share a Recipe</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Events</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer__links-title">Company</h4>
+          <ul class="footer__links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 Niko-Niko. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      
+      mobileMenu.classList.toggle('active');
+      
+      if (mobileMenu.classList.contains('active')) {
+        menuIcon.style.display = 'none';
+        closeIcon.style.display = 'block';
+      } else {
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      }
+    }
+    
+    function closeMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      
+      mobileMenu.classList.remove('active');
+      menuIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+    }
+    
+    // FAQ Accordion
+    function toggleFaq(button) {
+      const faqItem = button.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+      // Close all FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Open clicked item if it wasn't active
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
