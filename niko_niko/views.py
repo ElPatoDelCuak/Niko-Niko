@@ -1,7 +1,6 @@
 from django.shortcuts import render
 import random
 
-# Recipe data
 RECIPES = [
     {
         'id': 1,
@@ -58,6 +57,7 @@ RECIPES = [
         'servings': '4 raciones'
     },
 ]
+
 VALORATIONS = [
     {
         'text': 'Las recetas son increíbles, fáciles de seguir y el resultado siempre queda delicioso. ¡Muy recomendado!',
@@ -121,7 +121,6 @@ VALORATIONS = [
     }
 ]
 
-
 FAQS = [
     {
         'question': '¿Qué tipo de recetas puedo encontrar en Niko-Niko?',
@@ -172,5 +171,5 @@ def recipe(request):
 def about(request):
     return render(request, 'niko_niko/about.html')
 
-def contact(request):
-    return render(request, 'niko_niko/contact.html')
+def faqs(request):
+    return render(request, 'niko_niko/faqs.html')

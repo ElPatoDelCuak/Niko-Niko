@@ -1,24 +1,18 @@
 {% extends "base.html" %}
-
 {% load static %}
-    
 {% block title %}
 Niko-Niko!
 {% endblock  %}
-
 {% block link_css %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock %}
-
 {% block content %}
-    {% include "header.html" %}
     <main>
         <section class="hero">
         <div class="hero__bg">
             <img src="{% static 'img/kitchen-hero.png' %}" alt="Japanese cooking ingredients on a warm kitchen counter">
             <div class="hero__overlay"></div>
         </div>
-        
         <div class="hero__content">
             <p class="hero__eyebrow">Descubra la alegría de cocinar</p>
             <h1 class="hero__title text-balance">
@@ -38,7 +32,6 @@ Niko-Niko!
             <a href="#about" class="btn btn-outline btn-lg">Descubre más</a>
             </div>
         </div>
-        
         <div class="scroll-indicator">
             <div class="scroll-indicator__pill">
             <div class="scroll-indicator__dot"></div>
@@ -51,18 +44,17 @@ Niko-Niko!
             <div>
                 <p class="section__eyebrow">Recetas destacadas</p>
                 <h2 class="section__title text-balance">
-                Comienza tu culinaria<br>
-                viaje aqui
+                Comienza tu viaje<br>
+                culinario aquí
                 </h2>
             </div>
             <a href="#" class="btn btn-outline">
-                Mira Nuetras Recetas
+                Mira Nuestras Recetas
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <use href="#icon-arrow-right"></use>
                 </svg>
             </a>
-            </div>
-            
+            </div>  
             <div class="recipes__grid">
             {% for recipe in recipes %}
             <article class="recipe-card">
@@ -130,7 +122,6 @@ Niko-Niko!
                 <h3 class="value-card__title">Community First</h3>
                 <p class="value-card__description">Join thousands of home cooks sharing tips, stories, and their own creations.</p>
                 </div>
-                
                 <div class="value-card">
                 <div class="value-card__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -140,7 +131,6 @@ Niko-Niko!
                 <h3 class="value-card__title">Fresh & Simple</h3>
                 <p class="value-card__description">We believe in using quality ingredients and keeping things beautifully simple.</p>
                 </div>
-                
                 <div class="value-card">
                 <div class="value-card__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -166,8 +156,6 @@ Niko-Niko!
                 Vea lo que dicen los miembros de nuestra comunidad sobre su experiencia culinaria con Niko-Niko.
             </p>
             </div>
-            
-            
             <div class="testimonials-grid">
                 {% for valoration in valorations %}
                 <div class="testimonial-card">
@@ -178,7 +166,6 @@ Niko-Niko!
                 </div>
                 {% endfor %}
             </div>
-            
             <div class="community__cta">
             <a href="#" class="btn btn-primary btn-lg">
                 Únase a nuestra comunidad
@@ -193,9 +180,8 @@ Niko-Niko!
         <div class="container">
             <div class="faq__header">
             <p class="section__eyebrow">FAQ</p>
-            <h2 class="section__title text-balance">Preguntas comunes</h2>
+            <h2 class="section__title text-balance">Preguntas frecuentes</h2>
             </div>
-            
             <div class="faq__list">
             {% for faq in faqs %}
                 <div class="faq-item">
@@ -214,5 +200,4 @@ Niko-Niko!
         </div>
         </section>
     </main>
-    {% include "footer.html" %}
 {% endblock %}

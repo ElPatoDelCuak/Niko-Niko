@@ -19,10 +19,20 @@
 }
 
 .header__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.02em;
+}
+
+.header__logo-image {
+  width: auto;
+  height: 50px;
+  object-fit: contain;
+  display: block;
 }
 
 .header__nav {
