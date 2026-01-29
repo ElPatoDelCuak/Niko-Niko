@@ -58,7 +58,6 @@ RECIPES = [
         'servings': '4 raciones'
     },
 ]
-
 VALORATIONS = [
     {
         'text': 'Las recetas son increíbles, fáciles de seguir y el resultado siempre queda delicioso. ¡Muy recomendado!',
@@ -97,10 +96,10 @@ VALORATIONS = [
         'stars': 5
     },
     {
-        'text': 'Está bien para principiantes, pero esperaba más variedad en los platos principales.',
-        'author': 'Pablo Sánchez',
-        'occupation': 'Estudiante de Cocina',
-        'stars': 3
+        'text': 'Está bien para principiantes, pero esperaba mas variedades de recetas de kebab (a no que es japones coño).',
+        'author': 'Moussa Bhoudafri',
+        'occupation': 'Estudiante de DAW',
+        'stars': 4
     },
     {
         'text': 'Algunas recetas requieren ingredientes caros o difíciles de encontrar, lo que hace que no sean tan prácticas.',
