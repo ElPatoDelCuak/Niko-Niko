@@ -11,23 +11,28 @@ Niko-Niko - FAQs
     <section id="faq" class="section section--alt">
         <div class="container">
             <div class="faq__header">
-            <p class="section__eyebrow">FAQ</p>
-            <h2 class="section__title text-balance">Preguntas frecuentes</h2>
+                <p class="section__eyebrow">FAQ</p>
+                <h2 class="section__title text-balance">Preguntas frecuentes</h2>
             </div>
             <div class="faq__list">
-            {% for faq in faqs %}
-                <div class="faq-item">
-                    <button class="faq-item__question" onclick="toggleFaq(this)">
-                    {{ faq.question }}
-                    <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <use href="#icon-chevron-down"></use>
-                    </svg>
-                    </button>
-                    <div class="faq-item__answer">
-                    {{ faq.answer }}
+                {% for faq in faqs %}
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq-{{ forloop.counter }}" class="faq-toggle" hidden>
+                        
+                        <label for="faq-{{ forloop.counter }}" class="faq-item__question">
+                            {{ faq.question }}
+                            <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <use href="#icon-chevron-down"></use>
+                            </svg>
+                        </label>
+
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                {{ faq.answer }}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
             </div>
         </div>
     </section>

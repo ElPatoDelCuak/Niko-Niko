@@ -185,15 +185,18 @@ Niko-Niko!
             <div class="faq__list">
             {% for faq in faqs %}
                 <div class="faq-item">
-                    <button class="faq-item__question" onclick="toggleFaq(this)">
+                <input type="checkbox" id="faq-{{ forloop.counter }}" class="faq-toggle" hidden>
+                
+                <label for="faq-{{ forloop.counter }}" class="faq-item__question">
                     {{ faq.question }}
                     <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <use href="#icon-chevron-down"></use>
+                    <use href="#icon-chevron-down"></use>
                     </svg>
-                    </button>
-                    <div class="faq-item__answer">
+                </label>
+                
+                <div class="faq-item__answer">
                     {{ faq.answer }}
-                    </div>
+                </div>
                 </div>
             {% endfor %}
             </div>

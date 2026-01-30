@@ -264,6 +264,7 @@
 }
 
 /* ============ FAQ SECTION ============ */
+/* --- Tus estilos base mantenidos --- */
 .faq__header {
   text-align: center;
   margin-bottom: 4rem;
@@ -278,7 +279,14 @@
   border-bottom: 1px solid var(--border-50);
 }
 
+/* --- Cambios para el funcionamiento sin JS --- */
+
+.faq-toggle {
+  display: none; /* Escondemos el checkbox */
+}
+
 .faq-item__question {
+  cursor: pointer; /* Añadimos el cursor de mano */
   width: 100%;
   display: flex;
   align-items: center;
@@ -299,22 +307,30 @@
   width: 1.25rem;
   height: 1.25rem;
   color: var(--muted-foreground);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Giro más fluido */
   flex-shrink: 0;
   margin-left: 1rem;
 }
 
-.faq-item.active .faq-item__icon {
+.faq-item__answer {
+  /* En lugar de display:none, usamos esto para que se pueda animar */
+  max-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+/* --- La lógica del "Click" y el giro de la flecha --- */
+
+/* Cuando el input está marcado, la flecha gira */
+.faq-toggle:checked ~ .faq-item__question .faq-item__icon {
   transform: rotate(180deg);
 }
 
-.faq-item__answer {
-  display: none;
+/* Cuando el input está marcado, se muestra el texto */
+.faq-toggle:checked ~ .faq-item__answer {
+  max-height: 500px; /* Suficiente para el contenido */
   padding-bottom: 1.5rem;
-  color: var(--muted-foreground);
-  line-height: 1.7;
-}
-
-.faq-item.active .faq-item__answer {
-  display: block;
 }

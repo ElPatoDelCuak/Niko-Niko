@@ -97,7 +97,7 @@ VALORATIONS = [
     },
     {
         'text': 'Está bien para principiantes, pero esperaba mas variedades de recetas de kebab (a no que es japones coño).',
-        'author': 'Moussa Bhoudafri',
+        'author': 'Moussa Boudhafri',
         'occupation': 'Estudiante de DAW',
         'stars': 4
     },
