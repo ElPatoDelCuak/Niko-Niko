@@ -149,6 +149,10 @@ FAQS = [
     {
         'question': '¿Ofrecen contenido adicional como videos o tutoriales?',
         'answer': 'Sí, además de las recetas escritas, ofrecemos videos y tutoriales para ayudarte a mejorar tus habilidades culinarias y aprender técnicas específicas de la cocina japonesa.'
+    },
+    {
+        'question': '¿Con qué frecuencia se actualizan las recetas en Niko-Niko?',
+        'answer': 'Actualizamos nuestro sitio web regularmente con nuevas recetas y contenido para mantener la experiencia fresca y emocionante para nuestros usuarios.'
     }
 ]
 
@@ -172,4 +176,5 @@ def about(request):
     return render(request, 'niko_niko/about.html')
 
 def faqs(request):
-    return render(request, 'niko_niko/faqs.html')
+    context = {'faqs': FAQS}
+    return render(request, 'niko_niko/faqs.html', context)
