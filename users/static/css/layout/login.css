@@ -163,6 +163,7 @@
   gap: var(--spacing-md);
   color: var(--muted-foreground);
   font-size: 0.875rem;
+  margin-top: var(--spacing-xl);
 }
 
 .auth-divider::before,
