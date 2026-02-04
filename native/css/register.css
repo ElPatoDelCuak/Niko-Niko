@@ -1,0 +1,277 @@
+/* ===================================
+   REGISTER PAGE STYLES - Niko-Niko
+   Registration form specific styles
+   =================================== */
+
+/* Name Fields Row */
+.name-fields-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 480px) {
+  .name-fields-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Password Strength Indicator */
+.password-strength {
+  margin-top: var(--spacing-sm);
+}
+
+.password-strength-bar {
+  height: 4px;
+  background-color: var(--color-muted);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--spacing-xs);
+}
+
+.password-strength-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-fast), background-color var(--transition-fast);
+}
+
+.password-strength-fill.weak {
+  width: 25%;
+  background-color: var(--color-destructive);
+}
+
+.password-strength-fill.fair {
+  width: 50%;
+  background-color: #f59e0b;
+}
+
+.password-strength-fill.good {
+  width: 75%;
+  background-color: #10b981;
+}
+
+.password-strength-fill.strong {
+  width: 100%;
+  background-color: var(--color-accent);
+}
+
+.password-strength-text {
+  font-size: 0.75rem;
+  color: var(--color-muted-foreground);
+}
+
+/* Password Requirements */
+.password-requirements {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+}
+
+.password-requirements-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-sm);
+}
+
+.password-requirements-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.password-requirement {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.75rem;
+  color: var(--color-muted-foreground);
+}
+
+.password-requirement svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+}
+
+.password-requirement.met {
+  color: var(--color-accent);
+}
+
+.password-requirement.met svg {
+  color: var(--color-accent);
+}
+
+/* Terms Checkbox */
+.terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.terms-checkbox .checkbox-input {
+  margin-top: 2px;
+}
+
+.terms-checkbox .checkbox-label {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.terms-checkbox a {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.terms-checkbox a:hover {
+  text-decoration: underline;
+}
+
+/* Avatar Selection (for profile customization) */
+.avatar-selection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.avatar-options {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.avatar-option {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.avatar-option:hover {
+  transform: scale(1.05);
+}
+
+.avatar-option.selected {
+  border-color: var(--color-accent);
+}
+
+.avatar-option img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Cooking Level Selection */
+.cooking-level-selection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.cooking-level-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.cooking-level-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cooking-level-option:hover {
+  border-color: var(--color-accent);
+}
+
+.cooking-level-option.selected {
+  background-color: rgba(125, 154, 120, 0.1);
+  border-color: var(--color-accent);
+}
+
+.cooking-level-option svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-muted-foreground);
+}
+
+.cooking-level-option.selected svg {
+  color: var(--color-accent);
+}
+
+.cooking-level-option span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Step Indicator (for multi-step registration) */
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.step-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-muted);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.step-dot.active {
+  background-color: var(--color-accent);
+  transform: scale(1.25);
+}
+
+.step-dot.completed {
+  background-color: var(--color-accent);
+}
+
+/* Interest Tags */
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.interest-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.interest-tag:hover {
+  border-color: var(--color-accent);
+}
+
+.interest-tag.selected {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+.interest-tag svg {
+  width: 1rem;
+  height: 1rem;
+}

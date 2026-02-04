@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Niko-Niko - Explora Recetas
+{% endblock  %}
+
+{% block link_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include "header.html" %}
+    {% include "partials/icons.html" %}
+
+    <main>
+        <section class="section section--alt" style="padding-top: 8rem; padding-bottom: 4rem;">
+            <div class="container">
+                <div class="page-header" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <p class="section__eyebrow">Nuestro Recetario</p>
+                    <h1 class="section__title text-balance">Explora Nuestras Recetas</h1>
+                    <p class="section__description" style="margin: 0 auto;">
+                        Descubre auténticos sabores japoneses y asiáticos. Desde clásicos tradicionales hasta fusiones modernas, diseñadas para cada cocina.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-50);">
+            <div class="container">
+                <form method="GET" action="{% url 'niko_niko:recipes' %}" class="recipes__filters">
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between;">
+                        
+                        <div style="position: relative; flex: 1; min-width: 300px;">
+                            <input type="text" name="q" placeholder="Buscar por ingrediente o plato..." 
+                                   value="{{ request.GET.q }}"
+                                   style="width: 100%; padding: 0.75rem 1rem 0.75rem 3rem; border-radius: var(--radius-full); border: 1px solid var(--border); font-family: var(--font-sans);">
+                            <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted-foreground);" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+
+                        <div style="display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 0.5rem;">
+                            <a href="?category=all" class="btn {% if not request.GET.category or request.GET.category == 'all' %}btn-primary{% else %}btn-outline{% endif %} btn-sm">Todas</a>
+                            <a href="?category=soups" class="btn {% if request.GET.category == 'soups' %}btn-primary{% else %}btn-outline{% endif %} btn-sm">Sopas</a>
+                            <a href="?category=main" class="btn {% if request.GET.category == 'main' %}btn-primary{% else %}btn-outline{% endif %} btn-sm">Principales</a>
+                            <a href="?category=desserts" class="btn {% if request.GET.category == 'desserts' %}btn-primary{% else %}btn-outline{% endif %} btn-sm">Postres</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="recipes__grid">
+                    {% for recipe in recipes %}
+                    <article class="recipe-card">
+                        <div class="recipe-card__image-wrapper">
+                            <img src="{% if recipe.image %}{{ recipe.image.url }}{% else %}{% static 'img/placeholder-recipe.png' %}{% endif %}" 
+                                 alt="{{ recipe.title }}" class="recipe-card__image">
+                            <div class="recipe-card__gradient"></div>
+                            <span class="recipe-card__badge">{{ recipe.category }}</span>
+                            
+                            <div class="recipe-card__content">
+                                <h3 class="recipe-card__title">{{ recipe.title }}</h3>
+                                <p class="recipe-card__description">{{ recipe.description|truncatechars:80 }}</p>
+                                
+                                <div class="recipe-card__meta">
+                                    <div class="recipe-card__meta-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <use href="#icon-clock"></use>
+                                        </svg>
+                                        <span>{{ recipe.time }}</span>
+                                    </div>
+                                    <div class="recipe-card__meta-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <use href="#icon-users"></use>
+                                        </svg>
+                                        <span>{{ recipe.servings }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    {% empty %}
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 0;">
+                        <h3 class="section__title">No se encontraron recetas</h3>
+                        <p class="section__description">Intenta con otros filtros o términos de búsqueda.</p>
+                        <a href="{% url 'niko_niko:recipes' %}" class="btn btn-primary" style="margin-top: 1rem;">Ver todas las recetas</a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% if recipes.has_other_pages %}
+                <div style="display: flex; justify-content: center; margin-top: 4rem; gap: 0.5rem;">
+                    {% if recipes.has_previous %}
+                        <a href="?page={{ recipes.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" class="btn btn-outline">Anterior</a>
+                    {% endif %}
+                    
+                    <span class="btn btn-primary" style="cursor: default;">Página {{ recipes.number }}</span>
+                    
+                    {% if recipes.has_next %}
+                        <a href="?page={{ recipes.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" class="btn btn-outline">Siguiente</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    {% include "cookies.html" %}
+    {% include "footer.html" %}
+{% endblock %}

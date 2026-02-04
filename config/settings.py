@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'niko_niko',
     'users',
+    'recipes',
 ]
 
 MIDDLEWARE = [
@@ -118,4 +118,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+    ('niko_niko', BASE_DIR / 'niko_niko' / 'static'),
+    ('users', BASE_DIR / 'users' / 'static'),
+    ('recipes', BASE_DIR / 'recipes' / 'static'),
+]

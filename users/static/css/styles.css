@@ -1,0 +1,7 @@
+@import url('/static/css/reset.css');
+@import url('/static/css/fonts.css');
+@import url('/static/css/colors.css');
+@import url('/static/css/buttons.css');
+@import url('layout/login.css');
+@import url('layout/register.css');
+@import url('layout.css');

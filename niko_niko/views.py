@@ -169,8 +169,8 @@ def home(request):
     context['faqs'] = featured_faqs
     return render(request, 'niko_niko/home.html', context)
 
-def recipe(request):
-    return render(request, 'niko_niko/recipe.html')
+def recipes(request):
+    return render(request, 'recipes/recipes.html')
 
 def about(request):
     return render(request, 'niko_niko/about.html')

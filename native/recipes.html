@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora todas las recetas de Niko-Niko. Cocina japonesa y asiática para todos los niveles.">
+  <meta name="theme-color" content="#f5f2ed">
+  <title>Recetas | Niko-Niko</title>
+  
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/recipes.css">
+</head>
+<body>
+  <div class="recipes-page">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+            <line x1="6" y1="17" x2="18" y2="17"/>
+          </svg>
+          <span>Niko-Niko</span>
+        </a>
+        
+        <nav class="nav-desktop">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="recipes.html" class="nav-link active">Recetas</a>
+          <a href="index.html#about" class="nav-link">Nosotros</a>
+          <a href="index.html#community" class="nav-link">Comunidad</a>
+          <a href="index.html#faq" class="nav-link">FAQ</a>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="login.html" class="btn btn-ghost">Iniciar Sesión</a>
+          <a href="register.html" class="btn btn-primary">Registrarse</a>
+          
+          <button class="mobile-menu-btn" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="4" y1="6" x2="20" y2="6"/>
+              <line x1="4" y1="12" x2="20" y2="12"/>
+              <line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+          <a href="index.html" class="mobile-nav-link">Inicio</a>
+          <a href="recipes.html" class="mobile-nav-link">Recetas</a>
+          <a href="index.html#about" class="mobile-nav-link">Nosotros</a>
+          <a href="index.html#community" class="mobile-nav-link">Comunidad</a>
+          <a href="index.html#faq" class="mobile-nav-link">FAQ</a>
+        </nav>
+        <div class="mobile-menu-divider"></div>
+        <div class="mobile-menu-actions">
+          <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+          <a href="register.html" class="btn btn-primary">Registrarse</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="header-spacer"></div>
+
+    <main class="recipes-main">
+      <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+          <h1 class="page-title">Explora Nuestras Recetas</h1>
+          <p class="page-description">
+            Descubre más de 500 recetas auténticas japonesas y asiáticas, desde clásicos tradicionales hasta fusiones modernas.
+          </p>
+        </div>
+
+        <!-- Featured Banner -->
+        <div class="featured-banner">
+          <img src="../images/hero-cooking.jpg" alt="Receta destacada" class="featured-banner-image">
+          <div class="featured-banner-overlay"></div>
+          <div class="featured-banner-content">
+            <span class="featured-banner-badge">Receta del Mes</span>
+            <h2 class="featured-banner-title">Ramen Tonkotsu Casero</h2>
+            <p class="featured-banner-description">
+              Aprende a preparar el auténtico ramen de cerdo con caldo cremoso y toppings perfectos.
+            </p>
+            <a href="#" class="btn btn-lg">Ver Receta</a>
+          </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="search-filters-section">
+          <div class="search-bar">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+            <input type="text" class="search-input" placeholder="Buscar recetas, ingredientes..." id="searchInput">
+            <button class="search-clear" onclick="clearSearch()" aria-label="Limpiar búsqueda">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterByCategory(this, 'all')">Todas</button>
+            <button class="filter-tab" onclick="filterByCategory(this, 'soups')">Sopas</button>
+            <button class="filter-tab" onclick="filterByCategory(this, 'main')">Principales</button>
+            <button class="filter-tab" onclick="filterByCategory(this, 'appetizers')">Entrantes</button>
+            <button class="filter-tab" onclick="filterByCategory(this, 'desserts')">Postres</button>
+            <button class="filter-tab" onclick="filterByCategory(this, 'drinks')">Bebidas</button>
+          </div>
+          
+          <div class="advanced-filters">
+            <div class="filter-dropdown" id="difficultyDropdown">
+              <button class="filter-dropdown-btn" onclick="toggleDropdown('difficultyDropdown')">
+                <span>Dificultad</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="filter-dropdown-menu">
+                <button class="filter-option" onclick="selectFilter(this)">Fácil</button>
+                <button class="filter-option" onclick="selectFilter(this)">Media</button>
+                <button class="filter-option" onclick="selectFilter(this)">Difícil</button>
+              </div>
+            </div>
+            
+            <div class="filter-dropdown" id="timeDropdown">
+              <button class="filter-dropdown-btn" onclick="toggleDropdown('timeDropdown')">
+                <span>Tiempo</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="filter-dropdown-menu">
+                <button class="filter-option" onclick="selectFilter(this)">Menos de 30 min</button>
+                <button class="filter-option" onclick="selectFilter(this)">30-60 min</button>
+                <button class="filter-option" onclick="selectFilter(this)">Más de 1 hora</button>
+              </div>
+            </div>
+            
+            <div class="filter-dropdown" id="dietDropdown">
+              <button class="filter-dropdown-btn" onclick="toggleDropdown('dietDropdown')">
+                <span>Dieta</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="filter-dropdown-menu">
+                <button class="filter-option" onclick="selectFilter(this)">Vegetariano</button>
+                <button class="filter-option" onclick="selectFilter(this)">Vegano</button>
+                <button class="filter-option" onclick="selectFilter(this)">Sin Gluten</button>
+                <button class="filter-option" onclick="selectFilter(this)">Bajo en Sodio</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Info -->
+        <div class="results-info">
+          <p class="results-count">Mostrando <strong>12</strong> de <strong>156</strong> recetas</p>
+          <div class="sort-dropdown">
+            <label for="sortSelect">Ordenar por:</label>
+            <select id="sortSelect" class="sort-select">
+              <option value="popular">Más populares</option>
+              <option value="recent">Más recientes</option>
+              <option value="rating">Mejor valoradas</option>
+              <option value="time-asc">Tiempo: menor a mayor</option>
+              <option value="time-desc">Tiempo: mayor a menor</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Recipe Grid -->
+        <div class="recipes-grid-page">
+          <!-- Recipe Card 1 -->
+          <article class="recipe-card-enhanced">
+            <div class="recipe-card-image">
+              <img src="../images/recipe-ramen.jpg" alt="Ramen Tonkotsu">
+              <div class="recipe-card-badges">
+                <span class="recipe-badge">Sopas</span>
+                <button class="recipe-favorite-btn" onclick="toggleFavorite(this)" aria-label="Añadir a favoritos">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="recipe-card-content">
+              <h3 class="recipe-card-title">Ramen Tonkotsu Tradicional</h3>
+              <p class="recipe-card-author">Por Chef Tanaka</p>
+              <div class="recipe-card-stats">
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>45 min</span>
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>4</span>
+                <span class="recipe-stat rating"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.9</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe Card 2 -->
+          <article class="recipe-card-enhanced">
+            <div class="recipe-card-image">
+              <img src="../images/recipe-gyoza.jpg" alt="Gyoza">
+              <div class="recipe-card-badges">
+                <span class="recipe-badge">Entrantes</span>
+                <button class="recipe-favorite-btn favorited" onclick="toggleFavorite(this)" aria-label="Quitar de favoritos">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="recipe-card-content">
+              <h3 class="recipe-card-title">Gyoza Crujientes</h3>
+              <p class="recipe-card-author">Por Yuki Sato</p>
+              <div class="recipe-card-stats">
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>30 min</span>
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>20</span>
+                <span class="recipe-stat rating"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.8</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe Card 3 -->
+          <article class="recipe-card-enhanced">
+            <div class="recipe-card-image">
+              <img src="../images/recipe-matcha.jpg" alt="Roll de Matcha">
+              <div class="recipe-card-badges">
+                <span class="recipe-badge">Postres</span>
+                <button class="recipe-favorite-btn" onclick="toggleFavorite(this)" aria-label="Añadir a favoritos">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="recipe-card-content">
+              <h3 class="recipe-card-title">Roll de Matcha</h3>
+              <p class="recipe-card-author">Por Hana Kimura</p>
+              <div class="recipe-card-stats">
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>60 min</span>
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>8</span>
+                <span class="recipe-stat rating"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.7</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe Card 4 -->
+          <article class="recipe-card-enhanced">
+            <div class="recipe-card-image">
+              <img src="../images/recipe-ramen.jpg" alt="Miso Soup">
+              <div class="recipe-card-badges">
+                <span class="recipe-badge">Sopas</span>
+                <button class="recipe-favorite-btn" onclick="toggleFavorite(this)" aria-label="Añadir a favoritos">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="recipe-card-content">
+              <h3 class="recipe-card-title">Sopa de Miso Clásica</h3>
+              <p class="recipe-card-author">Por Chef Tanaka</p>
+              <div class="recipe-card-stats">
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15 min</span>
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>4</span>
+                <span class="recipe-stat rating"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.9</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe Card 5 -->
+          <article class="recipe-card-enhanced">
+            <div class="recipe-card-image">
+              <img src="../images/recipe-gyoza.jpg" alt="Takoyaki">
+              <div class="recipe-card-badges">
+                <span class="recipe-badge">Entrantes</span>
+                <button class="recipe-favorite-btn" onclick="toggleFavorite(this)" aria-label="Añadir a favoritos">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="recipe-card-content">
+              <h3 class="recipe-card-title">Takoyaki de Pulpo</h3>
+              <p class="recipe-card-author">Por Osaka Kitchen</p>
+              <div class="recipe-card-stats">
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>40 min</span>
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>24</span>
+                <span class="recipe-stat rating"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.6</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe Card 6 -->
+          <article class="recipe-card-enhanced">
+            <div class="recipe-card-image">
+              <img src="../images/recipe-matcha.jpg" alt="Mochi">
+              <div class="recipe-card-badges">
+                <span class="recipe-badge">Postres</span>
+                <button class="recipe-favorite-btn" onclick="toggleFavorite(this)" aria-label="Añadir a favoritos">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="recipe-card-content">
+              <h3 class="recipe-card-title">Mochi de Fresa</h3>
+              <p class="recipe-card-author">Por Sakura Sweets</p>
+              <div class="recipe-card-stats">
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>45 min</span>
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>12</span>
+                <span class="recipe-stat rating"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.8</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe Card 7 -->
+          <article class="recipe-card-enhanced">
+            <div class="recipe-card-image">
+              <img src="../images/recipe-ramen.jpg" alt="Udon">
+              <div class="recipe-card-badges">
+                <span class="recipe-badge">Principales</span>
+                <button class="recipe-favorite-btn" onclick="toggleFavorite(this)" aria-label="Añadir a favoritos">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="recipe-card-content">
+              <h3 class="recipe-card-title">Udon con Tempura</h3>
+              <p class="recipe-card-author">Por Chef Tanaka</p>
+              <div class="recipe-card-stats">
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>35 min</span>
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>2</span>
+                <span class="recipe-stat rating"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.7</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe Card 8 -->
+          <article class="recipe-card-enhanced">
+            <div class="recipe-card-image">
+              <img src="../images/recipe-gyoza.jpg" alt="Onigiri">
+              <div class="recipe-card-badges">
+                <span class="recipe-badge">Entrantes</span>
+                <button class="recipe-favorite-btn" onclick="toggleFavorite(this)" aria-label="Añadir a favoritos">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="recipe-card-content">
+              <h3 class="recipe-card-title">Onigiri Variados</h3>
+              <p class="recipe-card-author">Por Bento Box</p>
+              <div class="recipe-card-stats">
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>20 min</span>
+                <span class="recipe-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>6</span>
+                <span class="recipe-stat rating"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.5</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="pagination" aria-label="Paginación">
+          <button class="pagination-btn" disabled aria-label="Página anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button class="pagination-btn active" aria-current="page">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <span class="pagination-ellipsis">...</span>
+          <button class="pagination-btn">13</button>
+          <button class="pagination-btn" aria-label="Página siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+              <span>Niko-Niko</span>
+            </div>
+            <p class="footer-description">Tu destino para recetas japonesas y asiáticas auténticas.</p>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+              <a href="#" class="social-link" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a>
+              <a href="#" class="social-link" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg></a>
+            </div>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Explora</h4>
+            <nav class="footer-links">
+              <a href="recipes.html" class="footer-link">Todas las Recetas</a>
+              <a href="#" class="footer-link">Sopas y Caldos</a>
+              <a href="#" class="footer-link">Platos Principales</a>
+              <a href="#" class="footer-link">Postres</a>
+            </nav>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Comunidad</h4>
+            <nav class="footer-links">
+              <a href="index.html#about" class="footer-link">Sobre Nosotros</a>
+              <a href="#" class="footer-link">Blog</a>
+              <a href="#" class="footer-link">Foro</a>
+              <a href="#" class="footer-link">Contacto</a>
+            </nav>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Cuenta</h4>
+            <nav class="footer-links">
+              <a href="login.html" class="footer-link">Iniciar Sesión</a>
+              <a href="register.html" class="footer-link">Registrarse</a>
+              <a href="index.html#faq" class="footer-link">FAQ</a>
+              <a href="#" class="footer-link">Soporte</a>
+            </nav>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p class="footer-copyright">© 2024 Niko-Niko. Todos los derechos reservados.</p>
+          <div class="footer-legal">
+            <a href="#">Privacidad</a>
+            <a href="#">Términos</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+    
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      document.querySelectorAll('.filter-dropdown').forEach(d => {
+        if (d.id !== id) d.classList.remove('open');
+      });
+      dropdown.classList.toggle('open');
+    }
+    
+    function selectFilter(option) {
+      const dropdown = option.closest('.filter-dropdown');
+      dropdown.querySelectorAll('.filter-option').forEach(o => o.classList.remove('selected'));
+      option.classList.add('selected');
+      dropdown.classList.remove('open');
+    }
+    
+    function filterByCategory(button, category) {
+      document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+      button.classList.add('active');
+    }
+    
+    function toggleFavorite(button) {
+      button.classList.toggle('favorited');
+    }
+    
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+    }
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.filter-dropdown')) {
+        document.querySelectorAll('.filter-dropdown').forEach(d => d.classList.remove('open'));
+      }
+    });
+  </script>
+</body>
+</html>

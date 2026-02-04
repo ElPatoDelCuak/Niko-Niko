@@ -7,6 +7,8 @@ Niko-Niko!
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock %}
 {% block content %}
+    {% include "header.html" %}
+    {% include "partials/icons.html" %}
     <main>
         <section class="hero">
         <div class="hero__bg">
@@ -48,10 +50,10 @@ Niko-Niko!
                 culinario aquí
                 </h2>
             </div>
-            <a href="#" class="btn btn-outline">
+            <a href="{% url 'niko_niko:recipes' %}" class="btn btn-outline">
                 Mira Nuestras Recetas
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <use href="#icon-arrow-right"></use>
+                    <use href="#icon-arrow-right"></use>
                 </svg>
             </a>
             </div>  
@@ -203,4 +205,6 @@ Niko-Niko!
         </div>
         </section>
     </main>
+    {% include "cookies.html" %}
+    {% include "footer.html" %}
 {% endblock %}
