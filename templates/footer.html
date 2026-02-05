@@ -60,7 +60,9 @@
         <h4 class="footer__links-title">Comunidad</h4>
         <ul class="footer__links">
           <li><a href="{% url 'niko_niko:home' %}">Inicio</a></li>
-          <li><a href="#">Recetas</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'niko_niko:recipes' %}">Recetas</a></li>
+          {% endif %}
           <li><a href="{% url 'niko_niko:home' %}#community">Comentarios</a></li>
         </ul>
       </div>

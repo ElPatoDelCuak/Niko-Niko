@@ -6,8 +6,9 @@
             <span class="header__logo-text">Niko-Niko</span>
         </a>
         <nav class="header__nav">
+            <a href="{% url 'niko_niko:home' %}" class="header__nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Inicio</a>
             {% if user.is_authenticated %}
-                <a href="#recipes" class="header__nav-link">Recetas</a>
+                <a href="{% url 'niko_niko:recipes' %}" class="header__nav-link">Recetas</a>
             {% endif %}
             <a href="{% url 'niko_niko:home' %}#about" class="header__nav-link">Sobre Nosotros</a>
             <a href="{% url 'niko_niko:home' %}#community" class="header__nav-link">Comunidad</a>

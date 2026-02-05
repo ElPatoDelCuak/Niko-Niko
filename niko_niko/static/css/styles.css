@@ -1,7 +1,7 @@
 @import url('/static/css/reset.css');
 @import url('/static/css/fonts.css');
 @import url('/static/css/colors.css');
-@import url('/static/niko_niko/css/layout.css');
+@import url('/static/css/base.css');
 @import url('/static/css/buttons.css');
 @import url('/static/css/header.css');
 @import url('/static/niko_niko/css/layout/hero.css');
