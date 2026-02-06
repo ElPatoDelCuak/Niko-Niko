@@ -20,10 +20,8 @@ Login - Niko-Niko
         </a>
         <div class="auth-card">
           <div class="auth-header">
-            <a href="index.html" class="auth-logo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <use href="#icon-pot"></use>
-              </svg>
+            <a href="{% url 'niko_niko:home' %}" class="auth-logo">
+              <img src="{% static 'img/logo2.png' %}" alt="Niko-Niko Logo" width="40" height="40">
               <span>Niko-Niko</span>
             </a>
             <h1 class="auth-title">Bienvenido de nuevo</h1>
