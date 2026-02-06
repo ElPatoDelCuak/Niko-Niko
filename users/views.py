@@ -6,3 +6,9 @@ def login_view(request):
 
 def register_view(request):
     return render(request, 'users/register.html')
+
+def contact_view(request):
+    return render(request, 'users/contact.html')
+
+def policies_view(request):
+    return render(request, 'users/policies.html')

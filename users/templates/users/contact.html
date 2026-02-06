@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Contacto - Niko-Niko
+{% endblock %}
+{% block link_css %}
+<link rel="stylesheet" href="{% static 'users/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include "partials/icons.html" %}
+<div class="auth-page">
+    <main class="auth-main">
+      <div class="auth-container">
+        <a href="{% url 'niko_niko:home' %}" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <use href="#icon-chevron-left"></use>
+          </svg>
+          Volver al inicio
+        </a>
+        <div class="auth-card">
+          <div class="auth-header">
+            <a href="{% url 'niko_niko:home' %}" class="auth-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <use href="#icon-pot"></use>
+              </svg>
+              <span>Niko-Niko</span>
+            </a>
+            <h1 class="auth-title">Ponte en contacto</h1>
+            <p class="auth-subtitle">Cuéntanos qué te parece o cómo podemos mejorar</p>
+          </div>
+          
+          <form class="auth-form" onsubmit="event.preventDefault(); alert('Mensaje enviado correctamente');">
+            <div class="form-group">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Asunto</label>
+              <input type="text" id="subject" name="subject" class="form-input" placeholder="Asunto del mensaje" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea id="message" name="message" class="form-input" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary auth-submit-btn">Enviar Mensaje</button>
+          </form>
+
+          <div class="auth-footer" style="margin-top: 20px;">
+            <p>¿Prefieres otro método de contacto? <a href="mailto:info@niko-niko.com">info@niko-niko.com</a></p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
